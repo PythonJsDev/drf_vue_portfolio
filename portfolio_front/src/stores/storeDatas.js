@@ -44,8 +44,7 @@ export const useDatasStore = defineStore({
                 let datas = await axios.get(url)
                 this.datasList.loading = false
                 this.datasList.categories = datas.data
-                // let msg = datas.data.length > 0 ? 'Liste des projets' : `Détail du projet : ${datas.data.name}`
-                // this.successToats(msg)
+               
             } catch (error) {
                 this.datasList.loading = true
                 this.datasList.errorMessage = error
@@ -72,8 +71,7 @@ export const useDatasStore = defineStore({
             this.getAllCategories.forEach(el => {
                 el.projects.forEach(p => projectsList.push(p))
             })
-            // console.log('plist',projectsList)
-            // return (projectId) => {console.log('id in get project',projectId)}
+            
             return (projectId) => {return projectsList.filter(project => {return project.id === projectId})}
         },
         getProjectByCat(state){
@@ -82,26 +80,6 @@ export const useDatasStore = defineStore({
                 return state.datasList.categories.filter(category => {return category.name === catName})}
         
         },
-        // getDetailProject(state) {
-        //     const activeProjects = state.datasList.categories.filter((project) => project.active)
-        //     return (id) => {console.log('id', id, activeProjects)
-        //     console.log('truc', activeProjects.filter(project => project.id === id))
-        //         return activeProjects.find(project => project.id === id)};
-
-        // },
-        // getDetailProject(state) {
-        //     console.log('in getter cat', this.getAllProjects)
-        // },
-
-        // getTest(state) {
-        //     console.log('in getter', state.test)
-        //     return state.test[0].content
-
-        // },
-        // return (userId) => state.users.find((user) => user.id === userId)
-        // const activeUsers = state.users.filter((user) => user.active)
-        // return (userId) => activeUsers.find((user) => user.id === userId)
-
         getLoading(state) {
             return state.datasList.loading
         },

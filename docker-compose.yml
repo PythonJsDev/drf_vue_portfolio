@@ -7,6 +7,11 @@ services:
     env_file:
       - ./portfolio/.env
     ports:
-      - 5432:5432 
+      - 25432:5432
+    volumes:
+      - drf_vue_portfolio_postgres:/var/lib/postgresql/data
+
+volumes:
+  drf_vue_portfolio_postgres: {}
 
 
