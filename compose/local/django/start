@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Configuration des flags d'erreurs pour bash
+set -o errexit
+set -o pipefail
+set -o nounset
+
+#  commandes au démarrage
+python manage.py migrate
+python manage.py runserver

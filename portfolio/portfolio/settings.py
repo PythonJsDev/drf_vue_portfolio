@@ -92,8 +92,8 @@ DATABASES = {
         'NAME': env("POSTGRES_DB"),
         'USER': env("POSTGRES_USER"),
         'PASSWORD': env("POSTGRES_PASSWORD"),
-        'HOST': env("ALLOWED_HOSTS"),
-        'PORT': env("PORT"),
+        'HOST': env("POSTGRES_HOSTS"),
+        'PORT': env("POSTGRES_PORT"),
     }
 }
 
