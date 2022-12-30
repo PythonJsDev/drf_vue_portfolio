@@ -20,16 +20,16 @@ RUN apt update && apt install --no-install-recommends -y \
 
 # Installation des dépendances python
 COPY ./portfolio/requirements.txt .
-RUN pip install --no-cache-dir --no-index -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 
 COPY ./compose/local/django/entrypoint /entrypoint
-# supprime les caractères LF non compris par bach
+# supprime les caractères LF non compris par bash
 RUN sed -i 's/\r$//g' /entrypoint
 RUN chmod +x /entrypoint
 
 COPY ./compose/local/django/start /start
-# supprime les caractères non compris par bach
+# supprime les caractères non compris par bash
 RUN sed -i 's/\r$//g' /start
 RUN chmod +x /start
 

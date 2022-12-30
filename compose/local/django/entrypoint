@@ -20,7 +20,7 @@ python << END_PYTHON
                 dbname="${POSTGRES_DB}",
                 user="${POSTGRES_USER}",
                 password="${POSTGRES_PASSWORD}",
-                host="${POSTGRES_HOST}",
+                host="${POSTGRES_HOSTS}",
                 port="${POSTGRES_PORT}",
             )
             break
